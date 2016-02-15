@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="includes/diagramstyle.css" rel="stylesheet" type="text/css">
+
+<script src="includes/dagre.min.js"></script>
+<script src="includes/drawer.js"></script>
+<script src="includes/graph.js"></script>
+</head><body>
+<p>Storyboard <a href='.././test/de/uks/graphentechnik/testMissionariesProblem.java' type='text/x-java'>learnClassModel</a></p>
+<p>learnClassModel</p>
+<script>
+   var json = {
+   "typ":"class",
+   "nodes":[
+   {
+         "typ":"node",
+         "id":"JHBank",
+         "attributes":[
+         "side : String"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"JHBoat"
+      },
+      {
+         "typ":"node",
+         "id":"JHPerson",
+         "attributes":[
+         "type : String"
+         ]
+      }
+   ],
+   "edges":[
+   {
+         "typ":"edge",
+         "source":{
+            "id":"JHBoat",
+            "cardinality":"one",
+            "property":"_rev_on"
+         },
+         "target":{
+            "id":"JHBank",
+            "cardinality":"one",
+            "property":"on"
+         }
+      },
+      {
+         "typ":"edge",
+         "source":{
+            "id":"JHPerson",
+            "cardinality":"many",
+            "property":"_rev_at"
+         },
+         "target":{
+            "id":"JHBank",
+            "cardinality":"one",
+            "property":"at"
+         }
+      }
+   ]
+}   ;
+   new Graph(json, {"canvasid":"canvaslearnClassModelClassDiagram1", "display":"html", "fontsize":10,"bar":true}).layout(100,100);
+</script>
+
+</body>
+</html>
